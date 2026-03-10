@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WORLD JOB EMPLOYMENT AGENCY — Вакансии в Дубае</title>
+
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }
+        (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1557365635556110');
+        fbq('track', 'PageView');
+    </script>
+    <style>
+         :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --glass-border: #e2e8f0;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --gold: #f59e0b;
+            --wa: #16a34a;
+            --tg: #2563eb;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 480px;
+            padding: 30px 20px 40px;
+            /* Чуть уменьшил отступ сверху */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 220px;
+            /* Сделал крупнее, чтобы компенсировать пустые поля в файле */
+            height: auto;
+            margin-top: -10px;
+            /* Приподнял логотип повыше */
+            margin-bottom: -30px;
+            /* Отрицательный отступ: "съедает" пустые поля снизу и подтягивает текст */
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        /* Карточка менеджера */
+        
+        .manager-card {
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .m-photo-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .m-photo {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            display: block;
+        }
+        
+        .online-dot {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            width: 20px;
+            height: 20px;
+            background-color: #22c55e;
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+        }
+        
+        .m-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .m-role {
+            font-size: 14px;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        /* Кнопки */
+        
+        .btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            height: 56px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: transform 0.1s ease;
+        }
+        
+        .btn:active {
+            transform: scale(0.97);
+        }
+        
+        .btn-wa {
+            background: var(--wa);
+            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+        }
+        
+        .btn-tg {
+            background: var(--tg);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+        /* Преимущества */
+        
+        .features {
+            width: 100%;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            color: var(--text-main);
+        }
+        
+        .feature-icon {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <img src="assets/logo.gif" alt="WORLD JOB EMPLOYMENT AGENCY" class="logo">
+
+        <h1>Вакансии и трудоустройство<br>в Дубае</h1>
+        <p class="subtitle">Полное сопровождение, помощь с документами и высокие зарплаты. Ждем вас в нашей команде!</p>
+
+        <div class="manager-card">
+            <div class="m-photo-wrapper">
+                <img id="mPhoto" src="" alt="Менеджер" class="m-photo">
+                <div class="online-dot"></div>
+            </div>
+
+            <div id="mName" class="m-name">Загрузка...</div>
+            <div id="mRole" class="m-role">Загрузка...</div>
+
+            <a href="#" id="btnWa" class="btn btn-wa">Написать в WhatsApp</a>
+            <a href="#" id="btnTg" class="btn btn-tg">Написать в Telegram</a>
+        </div>
+
+        <div class="features">
+            <div class="feature-item">
+                <span class="feature-icon">🏢</span> Бесплатная консультация и подбор
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">📄</span> Помощь с оформлением визы
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🤝</span> Встреча в аэропорту по прилету
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const MANAGER = {
+            name: 'Андрей',
+            role: 'Менеджер по подбору персонала',
+            photo: 'assets/manager.jpg', // Фото Андрея 
+            whatsapp: '48791306492',
+            telegram: 'andrew_oae_work',
+            waText: 'Здравствуйте! Хочу узнать актуальные вакансии в Дубае.'
+        };
+
+        const mName = document.getElementById('mName');
+        const mRole = document.getElementById('mRole');
+        const mPhoto = document.getElementById('mPhoto');
+        const btnWa = document.getElementById('btnWa');
+        const btnTg = document.getElementById('btnTg');
+
+        mName.textContent = MANAGER.name;
+        mRole.textContent = MANAGER.role;
+
+        mPhoto.onerror = function() {
+            this.src = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2284%22%20height%3D%2284%22%20viewBox%3D%220%200%2084%2084%22%3E%3Crect%20fill%3D%22%23e2e8f0%22%20width%3D%2284%22%20height%3D%2284%22%2F%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M42%2042c-5.52%200-10-4.48-10-10s4.48-10%2010-10%2010%204.48%2010%2010-4.48%2010-10%2010zm0%204c10.67%200%2032%205.33%2032%2016v6H10v-6c0-10.67%2021.33-16%2032-16z%22%2F%3E%3C%2Fsvg%3E';
+        };
+        mPhoto.src = MANAGER.photo;
+
+        const waLink = 'https://api.whatsapp.com/send?phone=' + MANAGER.whatsapp + '&text=' + encodeURIComponent(MANAGER.waText);
+        const tgLink = 'https://t.me/' + MANAGER.telegram;
+
+        btnWa.href = waLink;
+        btnTg.href = tgLink;
+
+        function trackLead(e, channel, url) {
+            e.preventDefault();
+            if (window.fbq) {
+                fbq('track', 'Lead', {
+                    channel: channel
+                });
+            }
+            setTimeout(() => {
+                window.location.href = url;
+            }, 250);
+        }
+
+        btnWa.addEventListener('click', (e) => trackLead(e, 'WhatsApp', waLink));
+        btnTg.addEventListener('click', (e) => trackLead(e, 'Telegram', tgLink));
+    </script>
+
+</body>
+
+</html>
