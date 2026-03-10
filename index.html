@@ -29,7 +29,7 @@
         fbq('track', 'PageView');
     </script>
     <style>
-         :root {
+        :root {
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --glass-border: #e2e8f0;
@@ -39,14 +39,14 @@
             --wa: #16a34a;
             --tg: #2563eb;
         }
-        
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             -webkit-tap-highlight-color: transparent;
         }
-        
+
         body {
             font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             background-color: var(--bg-color);
@@ -56,29 +56,25 @@
             flex-direction: column;
             align-items: center;
         }
-        
+
         .container {
             width: 100%;
             max-width: 480px;
             padding: 30px 20px 40px;
-            /* Чуть уменьшил отступ сверху */
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        
+
         .logo {
             width: 220px;
-            /* Сделал крупнее, чтобы компенсировать пустые поля в файле */
             height: auto;
             margin-top: -10px;
-            /* Приподнял логотип повыше */
             margin-bottom: -30px;
-            /* Отрицательный отступ: "съедает" пустые поля снизу и подтягивает текст */
             position: relative;
             z-index: 2;
         }
-        
+
         h1 {
             font-size: 26px;
             font-weight: 800;
@@ -88,7 +84,7 @@
             position: relative;
             z-index: 3;
         }
-        
+
         .subtitle {
             font-size: 15px;
             color: var(--text-muted);
@@ -96,8 +92,7 @@
             margin-bottom: 30px;
             line-height: 1.5;
         }
-        /* Карточка менеджера */
-        
+
         .manager-card {
             width: 100%;
             background: var(--card-bg);
@@ -110,13 +105,13 @@
             margin-bottom: 24px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
         }
-        
+
         .m-photo-wrapper {
             position: relative;
             display: inline-block;
             margin-bottom: 12px;
         }
-        
+
         .m-photo {
             width: 84px;
             height: 84px;
@@ -125,7 +120,7 @@
             border: 3px solid var(--gold);
             display: block;
         }
-        
+
         .online-dot {
             position: absolute;
             bottom: 2px;
@@ -136,21 +131,20 @@
             border: 3px solid #ffffff;
             border-radius: 50%;
         }
-        
+
         .m-name {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 4px;
         }
-        
+
         .m-role {
             font-size: 14px;
             color: var(--gold);
             font-weight: 500;
             margin-bottom: 20px;
         }
-        /* Кнопки */
-        
+
         .btn {
             width: 100%;
             display: flex;
@@ -166,26 +160,25 @@
             margin-bottom: 12px;
             transition: transform 0.1s ease;
         }
-        
+
         .btn:active {
             transform: scale(0.97);
         }
-        
+
         .btn-wa {
             background: var(--wa);
             box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
         }
-        
+
         .btn-tg {
             background: var(--tg);
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
-        /* Преимущества */
-        
+
         .features {
             width: 100%;
         }
-        
+
         .feature-item {
             display: flex;
             align-items: center;
@@ -200,7 +193,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
             color: var(--text-main);
         }
-        
+
         .feature-icon {
             font-size: 20px;
         }
@@ -242,14 +235,34 @@
     </div>
 
     <script>
-        const MANAGER = {
-            name: 'Виктория',
-            role: 'Менеджер по подбору персонала',
-            photo: 'assets/manager.jpg', // Фото Андрея 
-            whatsapp: '48795659432',
-            telegram: 'viktoria_oae',
-            waText: 'Здравствуйте! Хочу узнать актуальные вакансии в Дубае.'
-        };
+        // БАЗА МЕНЕДЖЕРОВ ДЛЯ РАНДОМА
+        const MANAGERS = [
+            {
+                name: 'Виктория',
+                role: 'Менеджер по подбору персонала',
+                photo: 'assets/manager-viktoria.jpg', 
+                whatsapp: '48795659432',
+                telegram: 'viktoria_oae'
+            },
+            {
+                name: 'Андрей',
+                role: 'Менеджер по подбору персонала',
+                photo: 'assets/manager.jpg', 
+                whatsapp: '48791306492',
+                telegram: 'andrew_oae_work'
+            },
+            {
+                name: 'Карина',
+                role: 'Менеджер по подбору персонала',
+                photo: 'assets/manager-karina.jpg', 
+                whatsapp: '48578588916',
+                telegram: 'karina_oae'
+            }
+        ];
+
+        // ВЫБИРАЕМ СЛУЧАЙНОГО
+        const MANAGER = MANAGERS[Math.floor(Math.random() * MANAGERS.length)];
+        const WA_TEXT = 'Здравствуйте! Хочу узнать актуальные вакансии в Дубае.';
 
         const mName = document.getElementById('mName');
         const mRole = document.getElementById('mRole');
@@ -265,7 +278,8 @@
         };
         mPhoto.src = MANAGER.photo;
 
-        const waLink = 'https://api.whatsapp.com/send?phone=' + MANAGER.whatsapp + '&text=' + encodeURIComponent(MANAGER.waText);
+        // Бронебойные ссылки (WhatsApp через API для лучшей работы на мобильных)
+        const waLink = 'https://api.whatsapp.com/send?phone=' + MANAGER.whatsapp + '&text=' + encodeURIComponent(WA_TEXT);
         const tgLink = 'https://t.me/' + MANAGER.telegram;
 
         btnWa.href = waLink;
@@ -275,7 +289,8 @@
             e.preventDefault();
             if (window.fbq) {
                 fbq('track', 'Lead', {
-                    channel: channel
+                    channel: channel,
+                    manager: MANAGER.name // Добавили в пиксель инфо, кому ушел лид
                 });
             }
             setTimeout(() => {
@@ -288,6 +303,5 @@
     </script>
 
 </body>
-
 
 </html>
