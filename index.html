@@ -235,26 +235,15 @@
     </div>
 
     <script>
-        // БАЗА МЕНЕДЖЕРОВ: КАРТИНА И АНДРЕЙ
-        const MANAGERS = [
-            {
-                name: 'Андрей',
-                role: 'Менеджер по подбору персонала',
-                photo: 'assets/manager.jpg', 
-                whatsapp: '48575571174',
-                telegram: 'andrew_oae_work'
-            },
-            {
-                name: 'Карина',
-                role: 'Менеджер по подбору персонала',
-                photo: 'assets/manager-karina.jpg', 
-                whatsapp: '48578588916',
-                telegram: 'karina_oae'
-            }
-        ];
+        // ТОЛЬКО КАРИНА
+        const MANAGER = {
+            name: 'Карина',
+            role: 'Менеджер по подбору персонала',
+            photo: 'assets/manager-karina.jpg', 
+            whatsapp: '48578588916',
+            telegram: 'karina_oae'
+        };
 
-        // ВЫБИРАЕМ СЛУЧАЙНОГО ИЗ ДВУХ
-        const MANAGER = MANAGERS[Math.floor(Math.random() * MANAGERS.length)];
         const WA_TEXT = 'Здравствуйте! Хочу узнать актуальные вакансии в Дубае.';
 
         const mName = document.getElementById('mName');
