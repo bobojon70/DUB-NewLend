@@ -7,24 +7,11 @@
     <title>WORLD JOB EMPLOYMENT AGENCY — Вакансии в Дубае</title>
 
     <script>
-        ! function(f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function() {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }
-        (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+        (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '1557365635556110');
         fbq('track', 'PageView');
     </script>
@@ -93,6 +80,7 @@
             line-height: 1.5;
         }
 
+        /* Карточка менеджера */
         .manager-card {
             width: 100%;
             background: var(--card-bg);
@@ -145,6 +133,7 @@
             margin-bottom: 20px;
         }
 
+        /* Кнопки */
         .btn {
             width: 100%;
             display: flex;
@@ -175,6 +164,7 @@
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
 
+        /* Преимущества */
         .features {
             width: 100%;
         }
@@ -235,43 +225,61 @@
     </div>
 
     <script>
-        // ТОЛЬКО КАРИНА
-        const MANAGER = {
-            name: 'Карина',
-            role: 'Менеджер по подбору персонала',
-            photo: 'assets/manager-karina.jpg', 
-            whatsapp: '48578588916',
-            telegram: 'karina_oae'
-        };
+        // База менеджеров
+        const MANAGERS = [
+            {
+                name: 'Виктория',
+                role: 'Менеджер по подбору персонала',
+                photo: 'assets/manager-viktoria.jpg', // ПРОВЕРЬТЕ НАЗВАНИЕ ФАЙЛА НА ХОСТИНГЕ
+                whatsapp: '48795659432',
+                telegram: 'viktoria_oae'
+            },
+            {
+                name: 'Андрей',
+                role: 'Менеджер по подбору персонала',
+                photo: 'assets/manager.jpg',
+                whatsapp: '48575571174', // Последний предоставленный номер Андрея
+                telegram: 'andrew_oae_work'
+            }
+        ];
 
+        // Текст сообщения для WhatsApp
         const WA_TEXT = 'Здравствуйте! Хочу узнать актуальные вакансии в Дубае.';
 
+        // Находим элементы на странице
         const mName = document.getElementById('mName');
         const mRole = document.getElementById('mRole');
         const mPhoto = document.getElementById('mPhoto');
         const btnWa = document.getElementById('btnWa');
         const btnTg = document.getElementById('btnTg');
 
+        // Выбираем случайного менеджера (1 из 2)
+        const MANAGER = MANAGERS[Math.floor(Math.random() * MANAGERS.length)];
+
+        // Подставляем данные менеджера
         mName.textContent = MANAGER.name;
         mRole.textContent = MANAGER.role;
-
+        
+        // Обработка ошибки загрузки фото (показывает заглушку, если файла нет)
         mPhoto.onerror = function() {
             this.src = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2284%22%20height%3D%2284%22%20viewBox%3D%220%200%2084%2084%22%3E%3Crect%20fill%3D%22%23e2e8f0%22%20width%3D%2284%22%20height%3D%2284%22%2F%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M42%2042c-5.52%200-10-4.48-10-10s4.48-10%2010-10%2010%204.48%2010%2010-4.48%2010-10%2010zm0%204c10.67%200%2032%205.33%2032%2016v6H10v-6c0-10.67%2021.33-16%2032-16z%22%2F%3E%3C%2Fsvg%3E';
         };
         mPhoto.src = MANAGER.photo;
 
+        // Формируем ссылки
         const waLink = 'https://api.whatsapp.com/send?phone=' + MANAGER.whatsapp + '&text=' + encodeURIComponent(WA_TEXT);
         const tgLink = 'https://t.me/' + MANAGER.telegram;
 
         btnWa.href = waLink;
         btnTg.href = tgLink;
 
+        // Отправка события Lead в Facebook Pixel с задержкой 250мс для фиксации события
         function trackLead(e, channel, url) {
             e.preventDefault();
             if (window.fbq) {
                 fbq('track', 'Lead', {
                     channel: channel,
-                    manager: MANAGER.name 
+                    manager: MANAGER.name // Передаем имя менеджера в Pixel для аналитики
                 });
             }
             setTimeout(() => {
@@ -279,6 +287,7 @@
             }, 250);
         }
 
+        // Вешаем трекинг на клики по кнопкам
         btnWa.addEventListener('click', (e) => trackLead(e, 'WhatsApp', waLink));
         btnTg.addEventListener('click', (e) => trackLead(e, 'Telegram', tgLink));
     </script>
